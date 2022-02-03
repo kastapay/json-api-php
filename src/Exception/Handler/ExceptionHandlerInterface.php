@@ -19,18 +19,18 @@ interface ExceptionHandlerInterface
      * If the exception handler is able to format a response for the provided exception,
      * then the implementation should return true.
      *
-     * @param \Exception $e
+     * @param Throwable $e
      *
      * @return bool
      */
-    public function manages(\Throwable $e);
+    public function manages(Throwable $e);
 
     /**
      * Handle the provided exception.
      *
-     * @param \Exception $e
+     * @param \Throwable $e
      *
      * @return \Tobscure\JsonApi\Exception\Handler\ResponseBag
      */
-    public function handle(\Throwable $e);
+    public function handle(Throwable $e);
 }
