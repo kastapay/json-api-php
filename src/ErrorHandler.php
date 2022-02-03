@@ -11,8 +11,8 @@
 
 namespace Tobscure\JsonApi;
 
-use Exception;
 use RuntimeException;
+use Throwable;
 use Tobscure\JsonApi\Exception\Handler\ExceptionHandlerInterface;
 
 class ErrorHandler
@@ -27,13 +27,13 @@ class ErrorHandler
     /**
      * Handle the exception provided.
      *
-     * @param Exception $e
+     * @param Throwable $e
      *
      * @throws RuntimeException
      *
      * @return \Tobscure\JsonApi\Exception\Handler\ResponseBag
      */
-    public function handle(Exception $e)
+    public function handle(Throwable $e)
     {
         foreach ($this->handlers as $handler) {
             if ($handler->manages($e)) {

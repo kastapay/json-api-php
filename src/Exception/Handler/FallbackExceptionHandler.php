@@ -11,7 +11,7 @@
 
 namespace Tobscure\JsonApi\Exception\Handler;
 
-use Exception;
+use Throwable;
 
 class FallbackExceptionHandler implements ExceptionHandlerInterface
 {
@@ -31,7 +31,7 @@ class FallbackExceptionHandler implements ExceptionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function manages(Exception $e)
+    public function manages(Throwable $e)
     {
         return true;
     }
@@ -39,7 +39,7 @@ class FallbackExceptionHandler implements ExceptionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function handle(Exception $e)
+    public function handle(Throwable $e)
     {
         $status = 500;
         $error = $this->constructError($e, $status);
@@ -48,12 +48,12 @@ class FallbackExceptionHandler implements ExceptionHandlerInterface
     }
 
     /**
-     * @param \Exception $e
+     * @param \Throwable $e
      * @param $status
      *
      * @return array
      */
-    private function constructError(Exception $e, $status)
+    private function constructError(Throwable $e, $status)
     {
         $error = ['code' => $status, 'title' => 'Internal server error'];
 

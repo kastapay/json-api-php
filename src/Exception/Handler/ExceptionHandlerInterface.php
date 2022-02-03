@@ -11,7 +11,7 @@
 
 namespace Tobscure\JsonApi\Exception\Handler;
 
-use Exception;
+use Throwable;
 
 interface ExceptionHandlerInterface
 {
@@ -23,7 +23,7 @@ interface ExceptionHandlerInterface
      *
      * @return bool
      */
-    public function manages(Exception $e);
+    public function manages(\Throwable $e);
 
     /**
      * Handle the provided exception.
@@ -32,5 +32,5 @@ interface ExceptionHandlerInterface
      *
      * @return \Tobscure\JsonApi\Exception\Handler\ResponseBag
      */
-    public function handle(Exception $e);
+    public function handle(\Throwable $e);
 }

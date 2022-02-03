@@ -11,7 +11,7 @@
 
 namespace Tobscure\JsonApi\Exception\Handler;
 
-use Exception;
+use Throwable;
 use Tobscure\JsonApi\Exception\InvalidParameterException;
 
 class InvalidParameterExceptionHandler implements ExceptionHandlerInterface
@@ -19,7 +19,7 @@ class InvalidParameterExceptionHandler implements ExceptionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function manages(Exception $e)
+    public function manages(Throwable $e)
     {
         return $e instanceof InvalidParameterException;
     }
@@ -27,7 +27,7 @@ class InvalidParameterExceptionHandler implements ExceptionHandlerInterface
     /**
      * {@inheritdoc}
      */
-    public function handle(Exception $e)
+    public function handle(Throwable $e)
     {
         $status = 400;
         $error = [];
